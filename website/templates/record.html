@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if customer_record %}
+    <div class="card">
+        <div class="card-header">
+            {{customer_record.id}} {{customer_record.first_name}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{customer_record.email}} {{customer_record.phone}}</h5>
+          <p class="card-text">{{customer_record.address}} {{customer_record.city}} {{customer_record.state}}</p>
+        </div>
+    </div>
+    {% endif %}
+    <br/>
+    <a href='{% url 'home' %}' class='btn btn-secondary'>Back</a>
+    <br/>
+    <br/>
+
+    <a href='{% url 'delete_record' customer_record.id%}' class='btn btn-danger'>Delete</a>
+    <br/>
+    <br/>
+    <a href='{% url 'update_record' customer_record.id%}' class='btn btn-danger'>Update record</a>
+
+{% endblock content %}
+
